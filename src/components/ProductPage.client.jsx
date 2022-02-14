@@ -1,5 +1,7 @@
 import {Product, flattenConnection, useProduct} from '@shopify/hydrogen/client';
 import {BUTTON_PRIMARY_CLASSES} from './Button.client';
+import ProductOptions from './ProductOptions.client';
+
 export default function ProductPage({product}) {
   const initialVariant = flattenConnection(product.variants)[0];
 
@@ -7,9 +9,10 @@ export default function ProductPage({product}) {
     <Product product={product} initialVariantId={initialVariant.id}>
       <Product.SelectedVariant.Image />
       <Product.Title />
-      <Product.Description />
+      <ProductOptions />
       <Product.SelectedVariant.Price />
       <AddToCartMarkup />
+      <Product.Description />
     </Product>
   );
 }
