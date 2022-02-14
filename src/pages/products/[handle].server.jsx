@@ -6,20 +6,23 @@ export default function Product({params}) {
 
   const {data} = useShopQuery({
     query: gql`
-      query ProductPage {
-        product(handle: "snowboard") {
+      query ProductPage($handle: String!) {
+        product(handle: $handle) {
           id
           title
         }
       }
     `,
+    variables: {
+      handle,
+    },
   });
 
   console.log(data);
 
   return (
     <Layout>
-      <p>Product page for: {handle}</p>
+      <p>Product page for: {data.product.title}</p>
     </Layout>
   );
 }
