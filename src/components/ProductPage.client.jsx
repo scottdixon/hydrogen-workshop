@@ -1,4 +1,10 @@
-export default function ProductPage(product) {
-  console.log(product);
-  return <p>Product page client component</p>;
+import {Product} from '@shopify/hydrogen/client';
+
+export default function ProductPage({product}) {
+  return (
+    <Product product={product}>
+      <Product.Title />
+      <Product.Description />
+    </Product>
+  );
 }
