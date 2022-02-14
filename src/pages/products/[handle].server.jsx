@@ -1,6 +1,7 @@
 import Layout from '../../components/Layout.server';
 import gql from 'graphql-tag';
 import {useShopQuery} from '@shopify/hydrogen';
+import ProductPage from '../../components/ProductPage.client';
 export default function Product({params}) {
   const {handle} = params;
 
@@ -18,11 +19,9 @@ export default function Product({params}) {
     },
   });
 
-  console.log(data);
-
   return (
     <Layout>
-      <p>Product page for: {data.product.title}</p>
+      <ProductPage product={data.product} />
     </Layout>
   );
 }
