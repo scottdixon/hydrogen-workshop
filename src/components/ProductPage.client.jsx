@@ -7,12 +7,21 @@ export default function ProductPage({product}) {
 
   return (
     <Product product={product} initialVariantId={initialVariant.id}>
-      <Product.SelectedVariant.Image />
-      <Product.Title />
-      <ProductOptions />
-      <Product.SelectedVariant.Price />
-      <AddToCartMarkup />
-      <Product.Description />
+      <div className="grid grid-cols-1 md:grid-cols-[2fr,1fr] gap-x-8 my-16">
+        <div>
+          <Product.SelectedVariant.Image />
+        </div>
+        <div>
+          <Product.Title
+            as="h1"
+            className="text-5xl font-bold text-black mb-4"
+          />
+          <ProductOptions />
+          <Product.SelectedVariant.Price className="text-gray-900 text-lg mt-2 mb-2" />
+          <AddToCartMarkup />
+          <Product.Description className="prose" />
+        </div>
+      </div>
     </Product>
   );
 }
